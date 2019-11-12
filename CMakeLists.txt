@@ -95,8 +95,11 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  ${MY_CMAKE_FLAGS} $ENV{EXTRA_CFLAGS}")
 
 MESSAGE(STATUS "Compiler flags: ${CMAKE_C_FLAGS}")
 
-set(BORINGSSL_DIR "/Users/jiajia.jiang/Works/WorkProjects/PracProjects/boringssl-master")
-set(BORINGSSL_INCLUDE "/Users/jiajia.jiang/Works/WorkProjects/PracProjects/boringssl-master/include")
+MESSAGE(STATUS "BORINGSSL: $ENV{BORINGSSL}")
+
+set(BORINGSSL_DIR "$ENV{BORINGSSL}")
+##set(BORINGSSL_INCLUDE "/Users/jiajia.jiang/Works/WorkProjects/PracProjects/boringssl-master/include")
+
 IF (NOT DEFINED BORINGSSL_INCLUDE AND DEFINED BORINGSSL_DIR)
     FIND_PATH(BORINGSSL_INCLUDE NAMES openssl/ssl.h
                 PATHS ${BORINGSSL_DIR}/include
